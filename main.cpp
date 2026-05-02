@@ -1,80 +1,55 @@
-// ------------- FILE HEADER -------------
-// Author ✅: 
-// Assignment ✅:
-// Date ✅:
-// Citations: 
-
-
-// ------------- ZYBOOKS SCORES -------------
-// Chapter ✅: 
-// Participation ✅: 
-// Challenge ✅:
-// Labs ✅:
-
-
-// ------------- DISCORD POSTS -------------
-// https://discord.com/invite/URYKKf8YHm
-// Count ✅:
-// Links (Optional): 
-
-
-// ------------- DESIGN DOCUMENT -------------
-// A. INPUT ✅: 
-// B. OUTPUT ✅:
-// C. CALCULATIONS ✅:
-// D. LOGIC and ALGORITHMS ✅:
-//    (Optional) flow chart link or file name: 
-
-
-// ------------- TESTING -------------
-// PASS ALL GIVEN SAMPLE RUN TESTS ✅: 
-// (Optional) Additional tests count:   
-
-
-// ------------- CODE -------------
+/******************************************************************************
+# Author:           Lucy Price & Andy Joy
+# Assignment:       Discussion 3 - Username Creation Program
+# Date:             May 1, 2026
+# Description:      This program will take two names and one four digit number
+#                   and turn it into a username that is the first 5 digits
+#                   of the last name, the first digit of the first name, and
+#                   the last two digits of the four digit number.
+# Input:            firstName, lastName as strings & fourDigits as int.
+# Output:           loginName as string.
+# Sources:          Discussion 4 resources, and zybooks chapter 4.
+#******************************************************************************/
 #include <iostream>
-
+#include <string>
 using namespace std;
 
-// Function prototypes (if any)
-
-
 // Main function
-// https://en.cppreference.com/w/cpp/language/main_function.html
-int main(int argc, char* argv[]) {
-  cout << "Hello, World!" << endl;
-  return 0;
+int main() {
+
+//Declare variables
+string firstName = " ";
+string lastName = " ";
+string loginName = " ";
+int fourDigits = 0;
+
+//main function
+//welcome message
+cout << "Welcome to the Username Creation Program!" << endl;
+cout << "\nEnter first name: ";
+cin >> firstName;
+cout << "Enter last name: ";
+cin >> lastName;
+cout << "Enter a 4 digit number: ";
+cin >> fourDigits;
+
+cout << "\nYou entered: " << firstName << " " << lastName << " " << fourDigits << endl;
+
+//if else statement for length of lastname
+if (lastName.length() >= 5) {
+  loginName = lastName.substr(0, 5);
+}
+else {
+  loginName = lastName;
 }
 
-// Function implementations (if any)
+loginName += firstName.at(0) + to_string(fourDigits % 100);
+
+cout << "\nYour Username is: " << loginName << endl;
+
+//goodbye statement
+cout << "\nThank you for using the Username Creation Program!" << endl;
 
 
-// ------------- DESIGN -------------
-/* 
-Program Name:
-
-Program Description:
-
-Design:
-A. INPUT
-Define the input variables including name data type. 
-
-B. OUTPUT
-Define the output variables including data types. 
-
-C. CALCULATIONS
-Describe calculations used by algorithms in step D.  
-List all formulas. 
-If there are no calculations needed, state there are no calculations.
-
-D. LOGIC and ALGORITHMS
-Design the logic of your program using pseudocode or flowcharts. 
-Use conditionals, loops, functions or array constructs.
-List the steps in transforming inputs into outputs. 
-https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt
-
-
-SAMPLE RUNS
-Copy from assignment document.
-
-*/
+  return 0;
+}
